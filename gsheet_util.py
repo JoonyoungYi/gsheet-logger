@@ -9,6 +9,7 @@ CREDENTIAL_FILE_PATH = 'credentials.json'
 TOKEN_FILE_PATH = 'token.json'
 GSHEET_ID = '1sCL178XB0hsScwCYt_xtkhVkLh--OXAALF7TpxHJR5A'
 GSHEET_SNAME = 'sheet1'
+SAFE_TO_API_LIMITS = False
 PHYSICAL_SERVER_NUMBER = 1
 MAX_GSHEET_REQUEST_NUMBER = 5
 
@@ -26,7 +27,8 @@ def _init_service():
 
 
 def _wait():
-    time.sleep(PHYSICAL_SERVER_NUMBER)
+    if SAFE_TO_API_LIMITS:
+        time.sleep(PHYSICAL_SERVER_NUMBER)
 
 
 service = None
